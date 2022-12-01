@@ -1,0 +1,5 @@
+
+
+To create a scene firstly start with the main structure model that contains a reception,mini discussion room,washroom,coffee corner,conference room and the main work space.Wooden door fits to reception and wash room.Glass door frame 1 nd 2 fits to conference room door space and 3 fits to discussion room door space(for reference please take a look at the demo scene).For ceilling vent you can also see the demo scene if you want use it in your scene.Kitchen cabinet fits to the side of coffee corner.Conference table fits to conference room.Others props and furnitures are free to use as your need to decorate the scene.After all for any kind of hassle please take a look at the demo scenes.
+
+For any kind of need please feel free to contact at:meshlabstudio@gmail.com
