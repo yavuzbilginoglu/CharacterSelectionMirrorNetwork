@@ -1,5 +1,6 @@
 using Mirror;
 using UnityEngine;
+using UnityEngine.EventSystems;
 
 public class PlayerMovementController : NetworkBehaviour
 {
@@ -12,6 +13,8 @@ public class PlayerMovementController : NetworkBehaviour
     private bool jumppressed = false;
     private float gravityValue = -9.81f;
 
+    
+
     private Vector2 previousInput;
 
     public override void OnStartAuthority()
@@ -19,8 +22,9 @@ public class PlayerMovementController : NetworkBehaviour
         enabled = true;
 
         InputManager.Controls.Player.Move.performed += ctx => SetMovement(ctx.ReadValue<Vector2>());
-        InputManager.Controls.Player.Move.canceled += ctx => ResetMovement();
+        InputManager.Controls.Player.Move.canceled += ctx => ResetMovement();    
     }
+
 
     [ClientCallback]
     private void Update()

@@ -1,15 +1,21 @@
 using Mirror;
+using System;
+using System.Collections.Generic;
+using UnityEditor.Networking.PlayerConnection;
 using UnityEngine;
+
 
 public class MyNetworkManager : NetworkManager
 {
-    
+
     //public static int PickedSkinId;
+    public static event Action OnClientConnected;
+    public static event Action OnClientDisconnected;
     //public static SkinHolder skin;
     public override void OnServerAddPlayer(NetworkConnection conn)
     {
         base.OnServerAddPlayer(conn);
-        if (conn.identity.gameObject.GetComponent<MyNetworkPlayer>()!=null)
+        if (conn.identity.gameObject.GetComponent<MyNetworkPlayer>() != null)
         {
             print("connection:" + conn);
             var connectedPlayer = conn.identity.GetComponent<MyNetworkPlayer>();
@@ -19,7 +25,7 @@ public class MyNetworkManager : NetworkManager
         {
             print("null");
         }
-        
+
         //connectedPlayer.SetDisplayColor(new Color(Random.Range(0F,1F), Random.Range(0F,1F),Random.Range(0F,1F),1F));
 
         //connectedPlayer.SetDisplayName($"Player {numPlayers}");
@@ -28,7 +34,7 @@ public class MyNetworkManager : NetworkManager
         //skin=conn.identity.GetComponent<SkinHolder>();
         //skin.PickSkin(0);
     }
-    
+
     public override void OnStartClient()
     {
         //InputManager.Add(ActionMapNames.Player);//Hareketi kitle
@@ -36,3 +42,4 @@ public class MyNetworkManager : NetworkManager
         //InputManager.Controls.Player.Look.Enable();
     }
 }
+

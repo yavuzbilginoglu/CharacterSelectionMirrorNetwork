@@ -4,16 +4,16 @@ using UnityEngine;
 
 public class MyNetworkPlayer : NetworkBehaviour
 {
-    [SyncVar(hook = nameof(HandleDisplayName))] 
-    [SerializeField] 
+    [SyncVar(hook = nameof(HandleDisplayName))]
+    [SerializeField]
     public string displayName = "MissingName";
 
-    public static string nickName=null;
+    public static string nickName = null;
 
     //[SyncVar(hook=nameof(HandleDisplayColor))]
     //[SerializeField]
     //private Color displayColor = Color.black;
-    
+
     [Header("@References")]
     [SerializeField] private TextMeshProUGUI displayNameText = null;
 
@@ -38,11 +38,11 @@ public class MyNetworkPlayer : NetworkBehaviour
     private void CmdSetDisplayName(string newDisplayName)
     {
         // Validate First
-        
+
         // Then Set
 
         RpcLogNewDisplayName(newDisplayName);
-        
+
         SetDisplayName(newDisplayName);
     }
 
@@ -54,7 +54,7 @@ public class MyNetworkPlayer : NetworkBehaviour
     {
         //meshRenderer.material.color = newColor;
     }
-    
+
     public void HandleDisplayName(string oldName, string newName)
     {
         displayNameText.text = newName;
@@ -65,7 +65,7 @@ public class MyNetworkPlayer : NetworkBehaviour
     {
         CmdSetDisplayName("My New Name");
     }
-    
+
     [ClientRpc]
     private void RpcLogNewDisplayName(string newDisplayName)
     {
